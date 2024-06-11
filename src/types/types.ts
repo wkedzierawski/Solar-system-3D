@@ -16,7 +16,14 @@ export type PlanetConfig = {
   y: number;
   info: {
     name: PlanetName;
-    size: number;
+    radius: number;
+    population: string;
+    orbitalPeriod: string;
+    distanceFromSun: string;
+    lengthOfDay: string;
+    gravity: number;
+    mass: string;
+    surfaceArea: string;
   };
   rotation: number;
 };

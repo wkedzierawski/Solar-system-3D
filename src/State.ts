@@ -34,4 +34,9 @@ export class State {
     });
     return planet;
   };
+
+  public static isFirstPlanet = () => this.currentPlanet === 0;
+
+  public static isLastPlanet = () =>
+    this.currentPlanet === Object.keys(planetsConfig).length - 1;
 }

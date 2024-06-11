@@ -40,6 +40,10 @@ export class Controls {
           break;
 
         case "ArrowLeft":
+          if (State.isFirstPlanet()) {
+            return;
+          }
+
           const previousPlanet = State.previousPlanet();
           if (previousPlanet) {
             Animations.animateToPlanet(previousPlanet.info.name);
@@ -47,6 +51,10 @@ export class Controls {
           break;
 
         case "ArrowRight":
+          if (State.isLastPlanet()) {
+            return;
+          }
+
           const nextPlanet = State.nextPlanet();
           if (nextPlanet) {
             Animations.animateToPlanet(nextPlanet.info.name);

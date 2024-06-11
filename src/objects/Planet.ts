@@ -8,11 +8,7 @@ export class Planet {
   private options: PlanetConfig;
 
   protected radius: number;
-  public sphere: THREE.Mesh<
-    THREE.SphereGeometry,
-    THREE.MeshStandardMaterial,
-    THREE.Object3DEventMap
-  >;
+  public sphere;
 
   constructor(
     camera: THREE.Camera,

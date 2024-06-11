@@ -3,7 +3,28 @@ body {
   padding: 0;
   display: flex;
   place-items: center;
+  overflow: hidden;
 }
 * {
   box-sizing: border-box;
+}
+
+.planet_info {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  height: 150px;
+  font-size: 22px;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 15px;
+}
+
+.hidden {
+  display: none;
 }
