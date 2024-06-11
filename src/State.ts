@@ -12,6 +12,8 @@ export class State {
     1000
   );
 
+  public static loadingManger = THREE.DefaultLoadingManager;
+
   public static renderer = new THREE.WebGLRenderer();
 
   public static nextPlanet = () => {

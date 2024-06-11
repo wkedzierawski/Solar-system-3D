@@ -29,7 +29,9 @@ export class MainScene extends THREE.Scene {
       new Neptune(camera, renderer, planetsConfig.neptune)
     );
     this.background = spaceTexture;
-    this.planets.forEach((el) => this.add(el.sphere));
+    this.planets.forEach((el) => {
+      this.add(el.sphere);
+    });
   }
 
   public animate = () => {

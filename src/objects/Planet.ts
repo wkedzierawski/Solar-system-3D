@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { PlanetOptions } from "../types/types";
+import { PlanetConfig } from "../types/types";
 
 export class Planet {
   protected camera: THREE.Camera;
@@ -15,7 +15,7 @@ export class Planet {
   constructor(
     camera: THREE.Camera,
     renderer: THREE.Renderer,
-    planetOptions: PlanetOptions,
+    planetOptions: PlanetConfig,
     options?: THREE.MeshBasicMaterialParameters
   ) {
     this.camera = camera;

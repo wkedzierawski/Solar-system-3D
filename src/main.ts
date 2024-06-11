@@ -1,3 +1,4 @@
+import { Animations } from "./Animations";
 import { Controls } from "./Controls";
 import { State } from "./State";
 import { MainScene } from "./scenes/MainScene";
@@ -7,10 +8,18 @@ import * as TWEEN from "@tweenjs/tween.js";
 State.renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(State.renderer.domElement);
 
-State.camera.position.setZ(10);
+State.camera.position.setZ(100);
 
-const controls = new Controls(State.scene, State.camera, State.renderer);
+const controls = new Controls();
+controls.add();
 const scene = new MainScene(State.camera, State.renderer);
+
+State.loadingManger.onLoad = () => {
+  const initalPlanet = State.getPlanet();
+  if (initalPlanet) {
+    Animations.animateToPlanet(initalPlanet.info.name);
+  }
+};
 
 const animate = () => {
   scene.animate();
@@ -19,4 +28,3 @@ const animate = () => {
 };
 
 State.renderer.setAnimationLoop(animate);
-controls.add();
