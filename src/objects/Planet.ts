@@ -10,7 +10,7 @@ export class Planet {
   protected radius: number;
   public sphere: THREE.Mesh<
     THREE.SphereGeometry,
-    THREE.MeshBasicMaterial,
+    THREE.MeshStandardMaterial,
     THREE.Object3DEventMap
   >;
 
@@ -28,7 +28,7 @@ export class Planet {
 
     this.sphere = new THREE.Mesh(
       new THREE.SphereGeometry(this.radius),
-      new THREE.MeshBasicMaterial(options)
+      new THREE.MeshStandardMaterial(options)
     );
 
     this.sphere.translateX(planetOptions.x);

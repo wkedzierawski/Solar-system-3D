@@ -34,9 +34,19 @@ export class MainScene extends THREE.Scene {
     this.planets.forEach((el) => {
       this.add(el.sphere);
     });
+
+    this.addLight();
   }
 
   public animate = () => {
     this.planets.forEach((el) => el.animate());
+  };
+
+  private addLight = () => {
+    const light = new THREE.DirectionalLight(0xffffff, 2);
+    light.position.set(-1, 0, 100);
+    light.target.position.set(100, 0, 0);
+    this.add(light);
+    this.add(light.target);
   };
 }
