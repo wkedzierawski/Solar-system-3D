@@ -3,6 +3,7 @@ import { planetsConfig } from "./consts";
 
 export class State {
   private static currentPlanet = 0;
+  public static maxPlanetZoom = 2.5;
 
   public static scene = new THREE.Scene();
   public static camera = new THREE.PerspectiveCamera(

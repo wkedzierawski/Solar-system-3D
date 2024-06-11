@@ -35,7 +35,10 @@ export class Animations {
       return;
     }
 
-    this.animateCameraOffset({ ...planet, z: planet.radius * 2.5 });
+    this.animateCameraOffset({
+      ...planet,
+      z: planet.radius * State.maxPlanetZoom,
+    });
   };
 
   public static isAnimating = () => this.animating;

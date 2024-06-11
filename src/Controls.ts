@@ -13,22 +13,28 @@ export class Controls {
         return;
       }
 
+      const planet = State.getPlanet();
+
       switch (key) {
         case "ArrowUp":
+          const nextZ = State.camera.position.z - cameraMove;
+          if (planet && planet?.radius * State.maxPlanetZoom > nextZ) {
+            return;
+          }
+
           Animations.animateCameraOffset(
-            {
-              ...State.camera.position,
-              z: State.camera.position.z - cameraMove,
-            },
+            { ...State.camera.position, z: nextZ },
             300
           );
           break;
         case "ArrowDown":
+          const _nextZ = State.camera.position.z + cameraMove;
+          if (planet && planet?.radius * State.maxPlanetZoom > _nextZ) {
+            return;
+          }
+
           Animations.animateCameraOffset(
-            {
-              ...State.camera.position,
-              z: State.camera.position.z + cameraMove,
-            },
+            { ...State.camera.position, z: _nextZ },
             300
           );
           break;
