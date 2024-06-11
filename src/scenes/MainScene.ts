@@ -10,6 +10,7 @@ import { Neptune } from "../objects/Neptune";
 import { Venus } from "../objects/Venus";
 import { Uranus } from "../objects/Uranus";
 import { Saturn } from "../objects/Saturn";
+import { Sun } from "../objects/Sun";
 
 export class MainScene extends THREE.Scene {
   private planets: Planet[] = [];
@@ -19,6 +20,7 @@ export class MainScene extends THREE.Scene {
 
     const spaceTexture = new THREE.TextureLoader().load(spaceBackground);
     this.planets.push(
+      new Sun(camera, renderer, planetsConfig.sun),
       new Mercury(camera, renderer, planetsConfig.mercury),
       new Venus(camera, renderer, planetsConfig.venus),
       new Earth(camera, renderer, planetsConfig.earth),

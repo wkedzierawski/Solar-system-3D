@@ -5,6 +5,8 @@ export class Planet {
   protected camera: THREE.Camera;
   protected renderer: THREE.Renderer;
 
+  private options: PlanetConfig;
+
   protected radius: number;
   public sphere: THREE.Mesh<
     THREE.SphereGeometry,
@@ -20,6 +22,7 @@ export class Planet {
   ) {
     this.camera = camera;
     this.renderer = renderer;
+    this.options = planetOptions;
 
     this.radius = planetOptions.radius;
 
@@ -33,6 +36,6 @@ export class Planet {
   }
 
   public animate = () => {
-    this.sphere.rotateY(0.0003);
+    this.sphere.rotateY(this.options.rotation);
   };
 }

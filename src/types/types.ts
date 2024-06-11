@@ -1,4 +1,5 @@
 export enum PlanetName {
+  Sun = "Sun",
   Mercury = "Mercury",
   Venus = "Venus",
   Earth = "Earth",
@@ -10,7 +11,6 @@ export enum PlanetName {
 }
 
 export type PlanetConfig = {
-  index: number;
   radius: number;
   x: number;
   y: number;
@@ -18,4 +18,5 @@ export type PlanetConfig = {
     name: PlanetName;
     size: number;
   };
+  rotation: number;
 };

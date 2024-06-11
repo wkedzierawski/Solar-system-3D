@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { planetsConfig } from "./consts";
 
 export class State {
-  private static currentPlanet = 0;
+  private static currentPlanet = 1;
   public static maxPlanetZoom = 2.5;
 
   public static scene = new THREE.Scene();
@@ -10,7 +10,7 @@ export class State {
     75,
     window.innerWidth / window.innerHeight,
     0.1,
-    1000
+    10000000
   );
 
   public static loadingManger = THREE.DefaultLoadingManager;
