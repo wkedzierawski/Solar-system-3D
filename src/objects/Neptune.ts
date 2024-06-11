@@ -1,9 +1,9 @@
 import { Camera, Renderer, TextureLoader } from "three";
 import { Planet } from "./Planet";
 import { PlanetOptions } from "../types/types";
-import texture from "../assets/mars.jpg";
+import texture from "../assets/neptune.jpg";
 
-export class Mars extends Planet {
+export class Neptune extends Planet {
   constructor(camera: Camera, renderer: Renderer, options: PlanetOptions) {
     super(camera, renderer, options, {
       map: new TextureLoader().load(texture),
