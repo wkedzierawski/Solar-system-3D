@@ -20,15 +20,15 @@ export class MainScene extends THREE.Scene {
 
     const spaceTexture = new THREE.TextureLoader().load(spaceBackground);
     this.planets.push(
-      new Sun(camera, renderer, planetsConfig.sun),
-      new Mercury(camera, renderer, planetsConfig.mercury),
-      new Venus(camera, renderer, planetsConfig.venus),
-      new Earth(camera, renderer, planetsConfig.earth),
-      new Mars(camera, renderer, planetsConfig.mars),
-      new Jupiter(camera, renderer, planetsConfig.jupiter),
-      new Saturn(camera, renderer, planetsConfig.saturn),
-      new Uranus(camera, renderer, planetsConfig.uranus),
-      new Neptune(camera, renderer, planetsConfig.neptune)
+      new Sun(camera, renderer, planetsConfig.Sun),
+      new Mercury(camera, renderer, planetsConfig.Mercury),
+      new Venus(camera, renderer, planetsConfig.Venus),
+      new Earth(camera, renderer, planetsConfig.Earth),
+      new Mars(camera, renderer, planetsConfig.Mars),
+      new Jupiter(camera, renderer, planetsConfig.Jupiter),
+      new Saturn(camera, renderer, planetsConfig.Saturn),
+      new Uranus(camera, renderer, planetsConfig.Uranus),
+      new Neptune(camera, renderer, planetsConfig.Neptune)
     );
     this.background = spaceTexture;
     this.planets.forEach((el) => {

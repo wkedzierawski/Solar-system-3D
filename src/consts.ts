@@ -3,8 +3,8 @@ import { PlanetConfig, PlanetName } from "./types/types";
 const earthSize = 12800;
 const getScale = (size: number) => size / earthSize;
 
-export const planetsConfig: Record<string, PlanetConfig> = {
-  sun: {
+export const planetsConfig: Record<PlanetName, PlanetConfig> = {
+  [PlanetName.Sun]: {
     radius: getScale(2000000),
     x: -200,
     y: 0,
@@ -21,7 +21,7 @@ export const planetsConfig: Record<string, PlanetConfig> = {
     },
     rotation: 0.000001,
   },
-  mercury: {
+  [PlanetName.Mercury]: {
     radius: getScale(4900),
     x: 0,
     y: 0,
@@ -38,7 +38,7 @@ export const planetsConfig: Record<string, PlanetConfig> = {
     },
     rotation: 0.00001,
   },
-  venus: {
+  [PlanetName.Venus]: {
     radius: getScale(12100),
     x: 5,
     y: 0,
@@ -55,7 +55,7 @@ export const planetsConfig: Record<string, PlanetConfig> = {
     },
     rotation: 0.001,
   },
-  earth: {
+  [PlanetName.Earth]: {
     radius: getScale(earthSize),
     x: 10,
     y: 0,
@@ -67,12 +67,12 @@ export const planetsConfig: Record<string, PlanetConfig> = {
       distanceFromSun: "149.6 million km",
       orbitalPeriod: "365 days",
       surfaceArea: "148.9 million km²",
-      population: " --- ",
+      population: "8.1 Billion People",
       gravity: 9.807,
     },
     rotation: 0.001,
   },
-  mars: {
+  [PlanetName.Mars]: {
     radius: getScale(6800),
     x: 15,
     y: 0,
@@ -89,7 +89,7 @@ export const planetsConfig: Record<string, PlanetConfig> = {
     },
     rotation: 0.001,
   },
-  jupiter: {
+  [PlanetName.Jupiter]: {
     radius: getScale(143000),
     x: 30,
     y: 0,
@@ -101,12 +101,12 @@ export const planetsConfig: Record<string, PlanetConfig> = {
       distanceFromSun: "778.5 million km",
       orbitalPeriod: "4330 days",
       surfaceArea: "148.9 million km²",
-      population: "8.1 Billion People",
+      population: " --- ",
       gravity: 24.79,
     },
     rotation: 0.001,
   },
-  saturn: {
+  [PlanetName.Saturn]: {
     radius: getScale(120500),
     x: 60,
     y: 0,
@@ -123,7 +123,7 @@ export const planetsConfig: Record<string, PlanetConfig> = {
     },
     rotation: 0.001,
   },
-  uranus: {
+  [PlanetName.Uranus]: {
     radius: getScale(51100),
     x: 80,
     y: 0,
@@ -140,7 +140,7 @@ export const planetsConfig: Record<string, PlanetConfig> = {
     },
     rotation: 0.001,
   },
-  neptune: {
+  [PlanetName.Neptune]: {
     radius: getScale(49500),
     x: 100,
     y: 0,

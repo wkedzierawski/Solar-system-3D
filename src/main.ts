@@ -1,6 +1,8 @@
 import { Animations } from "./Animations";
 import { Controls } from "./Controls";
+import { Info } from "./Info";
 import { State } from "./State";
+import { CustomEvents } from "./objects/CustomEvents";
 import { MainScene } from "./scenes/MainScene";
 import "./style.css";
 import * as TWEEN from "@tweenjs/tween.js";
@@ -17,8 +19,9 @@ const scene = new MainScene(State.camera, State.renderer);
 State.loadingManger.onLoad = () => {
   const initalPlanet = State.getPlanet();
   if (initalPlanet) {
-    Animations.animateToPlanet(initalPlanet.info.name);
+    Animations.animateToPlanet(initalPlanet.info.name).then(Info.updatePlanet);
   }
+  CustomEvents.onPlanetChange(Info.updatePlanet);
 };
 
 const animate = () => {

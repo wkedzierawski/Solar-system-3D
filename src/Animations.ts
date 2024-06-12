@@ -47,7 +47,6 @@ export class Animations {
     });
 
     Info.toggleVisible("show");
-    Info.updatePlanet();
   };
 
   public static isAnimating = () => this.animating;
