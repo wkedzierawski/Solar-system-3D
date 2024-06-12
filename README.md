@@ -1,3 +1,8 @@
+# Solar System 3D
+
+### Demo - https://solar-system-two-omega.vercel.app/
+
+
 This project, developed with Three.js, offers a simplified visualization of the Solar System, enabling users to switch between different planets. Currently, it serves as a proof of concept. The project will be further developed to enhance its features and functionality.
 
 
