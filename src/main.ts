@@ -13,7 +13,7 @@ const controls = new Controls();
 const scene = new MainScene(State.camera, State.renderer);
 
 const initalPlanet = State.getPlanet();
-State.camera.position.set(initalPlanet.x, initalPlanet.y, 100);
+State.camera.position.set(20, 0, Math.max(initalPlanet.radius, 100));
 
 const animate = () => {
   scene.animate();

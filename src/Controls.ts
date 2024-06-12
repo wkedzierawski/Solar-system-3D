@@ -1,6 +1,5 @@
 import { State } from "./State";
 import { Animations } from "./Animations";
-import { PlanetName } from "./types/types";
 import { DOMElements } from "./utils/DOMElements";
 
 export class Controls {
@@ -66,7 +65,7 @@ export class Controls {
   public startExploring = async () => {
     this.started = true;
     DOMElements.getStart()?.remove();
-    Animations.animateToPlanet(PlanetName.Earth);
+    Animations.animateToPlanet(State.getPlanet().info.name);
   };
 
   private addKeyBinds = () => {
