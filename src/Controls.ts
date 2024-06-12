@@ -5,9 +5,62 @@ import { DOMElements } from "./utils/DOMElements";
 
 export class Controls {
   private started = false;
+  private zoomDuration = 300;
 
   public add = () => {
     this.addKeyBinds();
+  };
+
+  private goToNextPlanet = () => {
+    if (State.isLastPlanet()) {
+      return;
+    }
+
+    const nextPlanet = State.nextPlanet();
+    if (nextPlanet) {
+      Animations.animateToPlanet(nextPlanet.info.name);
+    }
+  };
+
+  private zoomIn = () => {
+    const planet = State.getPlanet();
+    const cameraMove = planet.radius;
+
+    const nextZ = State.camera.position.z - cameraMove;
+    if (planet.radius * State.maxPlanetZoom > nextZ) {
+      return;
+    }
+
+    Animations.animateCameraOffset(
+      { ...State.camera.position, z: nextZ },
+      this.zoomDuration
+    );
+  };
+
+  private zoomOut = () => {
+    const planet = State.getPlanet();
+    const cameraMove = planet.radius;
+
+    const nextZ = State.camera.position.z + cameraMove;
+    if (planet.radius * State.maxPlanetZoom > nextZ) {
+      return;
+    }
+
+    Animations.animateCameraOffset(
+      { ...State.camera.position, z: nextZ },
+      this.zoomDuration
+    );
+  };
+
+  private goToPreviousPlanet = () => {
+    if (State.isFirstPlanet()) {
+      return;
+    }
+
+    const previousPlanet = State.previousPlanet();
+    if (previousPlanet) {
+      Animations.animateToPlanet(previousPlanet.info.name);
+    }
   };
 
   public startExploring = async () => {
@@ -27,57 +80,25 @@ export class Controls {
         return;
       }
 
-      const planet = State.getPlanet();
-      const cameraMove = planet.radius;
-
       switch (key) {
         case "ArrowUp":
         case "w":
-          const nextZ = State.camera.position.z - cameraMove;
-          if (planet && planet?.radius * State.maxPlanetZoom > nextZ) {
-            return;
-          }
-
-          Animations.animateCameraOffset(
-            { ...State.camera.position, z: nextZ },
-            300
-          );
+          this.zoomIn();
           break;
+
         case "ArrowDown":
         case "s":
-          const _nextZ = State.camera.position.z + cameraMove;
-          if (planet && planet?.radius * State.maxPlanetZoom > _nextZ) {
-            return;
-          }
-
-          Animations.animateCameraOffset(
-            { ...State.camera.position, z: _nextZ },
-            300
-          );
+          this.zoomOut();
           break;
 
         case "ArrowLeft":
         case "a":
-          if (State.isFirstPlanet()) {
-            return;
-          }
-
-          const previousPlanet = State.previousPlanet();
-          if (previousPlanet) {
-            Animations.animateToPlanet(previousPlanet.info.name);
-          }
+          this.goToPreviousPlanet();
           break;
 
         case "ArrowRight":
         case "d":
-          if (State.isLastPlanet()) {
-            return;
-          }
-
-          const nextPlanet = State.nextPlanet();
-          if (nextPlanet) {
-            Animations.animateToPlanet(nextPlanet.info.name);
-          }
+          this.goToNextPlanet();
           break;
       }
     });
