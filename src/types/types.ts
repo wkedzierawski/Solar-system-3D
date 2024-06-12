@@ -1,3 +1,6 @@
+import { Planet } from "../structures/Planet";
+import { Star } from "../structures/Star";
+
 export enum PlanetName {
   Sun = "Sun",
   Mercury = "Mercury",
@@ -27,3 +30,5 @@ export type PlanetConfig = {
   };
   rotation: number;
 };
+
+export type SpaceStructure = Planet | Star;

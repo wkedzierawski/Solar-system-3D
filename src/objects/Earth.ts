@@ -1,4 +1,4 @@
-import { Planet } from "./Planet";
+import { Planet } from "../structures/Planet";
 import { PlanetConfig } from "../types/types";
 import { Camera, Renderer, TextureLoader } from "three";
 import texture from "../assets/earth.jpg";

@@ -1,7 +1,6 @@
 import * as THREE from "three";
 import { Earth } from "../objects/Earth";
 import spaceBackground from "../assets/space.jpg";
-import { Planet } from "../objects/Planet";
 import { Mars } from "../objects/Mars";
 import { planetsConfig } from "../consts";
 import { Mercury } from "../objects/Mercury";
@@ -11,9 +10,10 @@ import { Venus } from "../objects/Venus";
 import { Uranus } from "../objects/Uranus";
 import { Saturn } from "../objects/Saturn";
 import { Sun } from "../objects/Sun";
+import { SpaceStructure } from "../types/types";
 
 export class MainScene extends THREE.Scene {
-  private planets: Planet[] = [];
+  private planets: SpaceStructure[] = [];
 
   constructor(camera: THREE.Camera, renderer: THREE.Renderer) {
     super();

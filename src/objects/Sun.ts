@@ -1,8 +1,8 @@
 import { Camera, Renderer, TextureLoader } from "three";
-import { Planet } from "./Planet";
 import { PlanetConfig } from "../types/types";
 import texture from "../assets/sun.jpg";
-export class Sun extends Planet {
+import { Star } from "../structures/Star";
+export class Sun extends Star {
   constructor(camera: Camera, renderer: Renderer, options: PlanetConfig) {
     super(camera, renderer, options, {
       map: new TextureLoader().load(texture),

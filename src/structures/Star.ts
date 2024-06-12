@@ -2,9 +2,9 @@ import * as THREE from "three";
 import { PlanetConfig } from "../types/types";
 import { DragControls } from "three/examples/jsm/Addons.js";
 import { State } from "../State";
-import { CustomEvents } from "./CustomEvents";
+import { CustomEvents } from "../objects/CustomEvents";
 
-export class Planet {
+export class Star {
   protected camera: THREE.Camera;
   protected renderer: THREE.Renderer;
 
@@ -27,7 +27,7 @@ export class Planet {
 
     this.sphere = new THREE.Mesh(
       new THREE.SphereGeometry(this.radius),
-      new THREE.MeshStandardMaterial(options)
+      new THREE.MeshBasicMaterial(options)
     );
 
     this.handleDraggable();
