@@ -9,13 +9,13 @@ export class Animations {
 
   public static animateCameraOffset = (
     payload: { x: number; y: number; z: number },
-    time: number = 800
+    duration: number = 800
   ) => {
     return new Promise<void>((resolve) => {
       const coords = { ...State.camera.position };
 
       new TWEEN.Tween(coords)
-        .to(payload, time)
+        .to(payload, duration)
         .onStart(() => {
           this.animating = true;
         })
@@ -30,7 +30,10 @@ export class Animations {
     });
   };
 
-  public static animateToPlanet = async (name: PlanetName) => {
+  public static animateToPlanet = async (
+    name: PlanetName,
+    duration?: number
+  ) => {
     const planet = Object.entries(planetsConfig).find(
       ([_, value]) => value.info.name === name
     )?.[1];
@@ -41,12 +44,16 @@ export class Animations {
 
     Info.toggleVisible("hide");
 
-    await this.animateCameraOffset({
-      ...planet,
-      z: planet.radius * State.maxPlanetZoom,
-    });
+    await this.animateCameraOffset(
+      {
+        ...planet,
+        z: planet.radius * State.maxPlanetZoom,
+      },
+      duration
+    );
 
     Info.toggleVisible("show");
+    Info.updatePlanet();
   };
 
   public static isAnimating = () => this.animating;

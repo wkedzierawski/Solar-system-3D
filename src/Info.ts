@@ -1,14 +1,11 @@
 import { State } from "./State";
 import { createInfoTemplate } from "./template";
-
-const classNames = {
-  planetInfo: ".planet_info",
-};
+import { DOMElements } from "./utils/DOMElements";
 
 export class Info {
   public static updatePlanet = () => {
     const planet = State.getPlanet();
-    const infoElement = document.querySelector(classNames.planetInfo);
+    const infoElement = DOMElements.getPlanetInfo();
 
     if (!planet || !infoElement) {
       return;
@@ -18,7 +15,7 @@ export class Info {
   };
 
   public static toggleVisible = (variant: "show" | "hide") => {
-    const infoElement = document.querySelector(classNames.planetInfo);
+    const infoElement = DOMElements.getPlanetInfo();
     infoElement?.classList[variant === "show" ? "remove" : "add"]("hidden");
   };
 }

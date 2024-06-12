@@ -1,19 +1,34 @@
 import { State } from "./State";
 import { Animations } from "./Animations";
+import { PlanetName } from "./types/types";
+import { DOMElements } from "./utils/DOMElements";
 
 export class Controls {
+  private started = false;
+
   public add = () => {
     this.addKeyBinds();
   };
 
+  public startExploring = async () => {
+    this.started = true;
+    DOMElements.getStart()?.remove();
+    Animations.animateToPlanet(PlanetName.Earth);
+  };
+
   private addKeyBinds = () => {
-    const cameraMove = 1;
     document.addEventListener("keydown", ({ key }) => {
       if (Animations.isAnimating()) {
         return;
       }
 
+      if (!this.started) {
+        key === "Enter" && this.startExploring();
+        return;
+      }
+
       const planet = State.getPlanet();
+      const cameraMove = planet.radius;
 
       switch (key) {
         case "ArrowUp":
