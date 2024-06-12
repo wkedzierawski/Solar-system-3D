@@ -32,6 +32,7 @@ export class Controls {
 
       switch (key) {
         case "ArrowUp":
+        case "w":
           const nextZ = State.camera.position.z - cameraMove;
           if (planet && planet?.radius * State.maxPlanetZoom > nextZ) {
             return;
@@ -43,6 +44,7 @@ export class Controls {
           );
           break;
         case "ArrowDown":
+        case "s":
           const _nextZ = State.camera.position.z + cameraMove;
           if (planet && planet?.radius * State.maxPlanetZoom > _nextZ) {
             return;
@@ -55,6 +57,7 @@ export class Controls {
           break;
 
         case "ArrowLeft":
+        case "a":
           if (State.isFirstPlanet()) {
             return;
           }
@@ -66,6 +69,7 @@ export class Controls {
           break;
 
         case "ArrowRight":
+        case "d":
           if (State.isLastPlanet()) {
             return;
           }
