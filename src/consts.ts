@@ -108,7 +108,7 @@ export const planetsConfig: Record<PlanetName, PlanetConfig> = {
   },
   [PlanetName.Saturn]: {
     radius: getScale(120500),
-    x: 60,
+    x: 70,
     y: 0,
     info: {
       name: PlanetName.Saturn,
@@ -125,7 +125,7 @@ export const planetsConfig: Record<PlanetName, PlanetConfig> = {
   },
   [PlanetName.Uranus]: {
     radius: getScale(51100),
-    x: 80,
+    x: 100,
     y: 0,
     info: {
       name: PlanetName.Uranus,
@@ -142,7 +142,7 @@ export const planetsConfig: Record<PlanetName, PlanetConfig> = {
   },
   [PlanetName.Neptune]: {
     radius: getScale(49500),
-    x: 100,
+    x: 120,
     y: 0,
     info: {
       name: PlanetName.Neptune,
