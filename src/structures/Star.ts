@@ -36,9 +36,7 @@ export class Star {
     this.sphere.translateY(planetOptions.y);
   }
 
-  public animate = () => {
-    this.sphere.rotateY(this.options.rotation);
-  };
+  public animate = () => {};
 
   private shouldEnableDraggable = () => {
     const planet = State.getPlanet();

@@ -23,6 +23,11 @@ body {
   justify-content: center;
 }
 
+.loading h1,
+.start h1 {
+  animation: glowing infinite 1500ms;
+}
+
 .start {
   position: absolute;
   width: 100%;
@@ -50,4 +55,16 @@ body {
 
 .hidden {
   display: none;
+}
+
+@keyframes glowing {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
