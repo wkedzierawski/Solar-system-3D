@@ -15,16 +15,24 @@ const scene = new MainScene(State.camera, State.renderer);
 const initalPlanet = State.getPlanet();
 State.camera.position.set(initalPlanet.x, initalPlanet.y, 100);
 
-State.loadingManger.onLoad = async () => {
-  CustomEvents.onPlanetChange(Info.updatePlanet);
-  DOMElements.getLoading()?.remove();
-  controls.add();
-};
-
 const animate = () => {
   scene.animate();
   State.renderer.render(scene, State.camera);
   TWEEN.update();
 };
 
+const onResize = () => {
+  State.renderer.setSize(window.innerWidth, window.innerHeight);
+
+  const canvas = State.renderer.domElement;
+  State.camera.aspect = canvas.clientWidth / canvas.clientHeight;
+  State.camera.updateProjectionMatrix();
+};
+
+State.loadingManger.onLoad = async () => {
+  CustomEvents.onPlanetChange(Info.updatePlanet);
+  DOMElements.getLoading()?.remove();
+  controls.add();
+};
+window.addEventListener("resize", onResize);
 State.renderer.setAnimationLoop(animate);
