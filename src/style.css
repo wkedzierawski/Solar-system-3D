@@ -29,6 +29,10 @@ body {
   animation: glowing infinite 1500ms;
 }
 
+.start h1 {
+  margin-bottom: 50px;
+}
+
 .start {
   position: absolute;
   width: 100%;
