@@ -11,6 +11,7 @@ body {
 }
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 .loading {
@@ -54,6 +55,18 @@ body {
 }
 .key {
   margin: 0;
+}
+
+.development {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 15px;
+  color: white;
+  opacity: 0.5;
 }
 
 .planet_info {
