@@ -1,23 +1,32 @@
-import * as THREE from "three";
 import { PlanetConfig } from "../types/types";
 import { DragControls } from "three/examples/jsm/Addons.js";
 import { State } from "../State";
 import { CustomEvents } from "../objects/CustomEvents";
+import {
+  Camera,
+  Group,
+  Mesh,
+  MeshBasicMaterialParameters,
+  MeshStandardMaterial,
+  Renderer,
+  SphereGeometry,
+} from "three";
 
 export class Planet {
-  protected camera: THREE.Camera;
-  protected renderer: THREE.Renderer;
+  protected camera: Camera;
+  protected renderer: Renderer;
 
   private options: PlanetConfig;
 
   protected radius: number;
-  public sphere;
+  public planetGroup = new Group();
+  private sphere;
 
   constructor(
-    camera: THREE.Camera,
-    renderer: THREE.Renderer,
+    camera: Camera,
+    renderer: Renderer,
     planetOptions: PlanetConfig,
-    options?: THREE.MeshBasicMaterialParameters
+    options?: MeshBasicMaterialParameters
   ) {
     this.camera = camera;
     this.renderer = renderer;
@@ -25,15 +34,16 @@ export class Planet {
 
     this.radius = planetOptions.radius;
 
-    this.sphere = new THREE.Mesh(
-      new THREE.SphereGeometry(this.radius),
-      new THREE.MeshStandardMaterial(options)
+    this.sphere = new Mesh(
+      new SphereGeometry(this.radius),
+      new MeshStandardMaterial(options)
     );
 
     this.handleDraggable();
 
-    this.sphere.translateX(planetOptions.x);
-    this.sphere.translateY(planetOptions.y);
+    this.planetGroup.translateX(planetOptions.x);
+    this.planetGroup.translateY(planetOptions.y);
+    this.planetGroup.add(this.sphere);
   }
 
   public animate = () => {
@@ -51,6 +61,7 @@ export class Planet {
       this.camera,
       this.renderer.domElement
     );
+    controls.transformGroup = true;
 
     CustomEvents.onPlanetChange(() => {
       controls.enabled = this.shouldEnableDraggable();
