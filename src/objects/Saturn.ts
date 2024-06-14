@@ -43,6 +43,6 @@ export class Saturn extends Planet {
     });
     const ring = new Mesh(geometry, material);
     ring.rotateX(2);
-    this.sphere.add(ring);
+    this.planetGroup.add(ring);
   }
 }
