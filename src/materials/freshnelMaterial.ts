@@ -48,7 +48,6 @@ export const getFresnelMaterial = ({
     fragmentShader: fs,
     transparent: true,
     blending: AdditiveBlending,
-    // wireframe: true,
   });
   return fresnelMat;
 };
