@@ -13,5 +13,5 @@ This project, developed with Three.js, offers a simplified visualization of the 
 
 
 ### Earth
-<img width="1787" alt="obraz" src="https://github.com/wkedzierawski/Solar-system-3D/assets/171347609/895c47db-b607-4431-91e5-25b06f796857">
+<img width="1783" alt="image" src="https://github.com/wkedzierawski/Solar-system-3D/assets/171347609/3ec336d9-dc4f-422b-9f99-c1d20f560ee3">
 
