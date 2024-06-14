@@ -10,17 +10,19 @@ import { Venus } from "../objects/Venus";
 import { Uranus } from "../objects/Uranus";
 import { Saturn } from "../objects/Saturn";
 import { Sun } from "../objects/Sun";
-import { SpaceStructure } from "../types/types";
+import { Planet } from "../structures/Planet";
+import { Star } from "../structures/Star";
 
 export class MainScene extends THREE.Scene {
-  private planets: SpaceStructure[] = [];
+  private planets: Planet[] = [];
+  private stars: Star[] = [];
 
   constructor(camera: THREE.Camera, renderer: THREE.Renderer) {
     super();
 
     const spaceTexture = new THREE.TextureLoader().load(spaceBackground);
+    this.stars.push(new Sun(camera, renderer, planetsConfig.Sun));
     this.planets.push(
-      new Sun(camera, renderer, planetsConfig.Sun),
       new Mercury(camera, renderer, planetsConfig.Mercury),
       new Venus(camera, renderer, planetsConfig.Venus),
       new Earth(camera, renderer, planetsConfig.Earth),
@@ -32,6 +34,10 @@ export class MainScene extends THREE.Scene {
     );
     this.background = spaceTexture;
     this.planets.forEach((el) => {
+      this.add(el.planetGroup);
+    });
+
+    this.stars.forEach((el) => {
       this.add(el.sphere);
     });
 
